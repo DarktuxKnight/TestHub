@@ -2,6 +2,65 @@ import random
 import time
 import os
 SecretWord = 'Dice'
+
+HANGMANPICS = ['''
+
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
 def CreateNewHangman(SecretWord,GuessWord):
     if GuessWord == 0:
         for i in range(0,len(SecretWord)):
@@ -48,6 +107,7 @@ while PlayChoice == 'Y' or PlayChoice == 'y':
     elif not((GuessLetter.upper() in SecretWord) or (GuessLetter.lower() in SecretWord)):
         BadKarma = BadKarma + 1
         print('Number of Guesses left: ',len(SecretWord)-int(BadKarma))
+        print(HANGMANPICS[int(BadKarma)])
     else:
         print()
 
